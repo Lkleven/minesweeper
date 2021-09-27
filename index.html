@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="styles/main.css" />
+    </head>
+
+    <body>
+        <div id="game">
+            <h1>Minesweeper</h1>
+            <div class="panel">
+                <p id="game-status">Find all mines</p>
+                <button id="flag-button" onclick="toggleFlagMode(this)">
+                    🚩
+                </button>
+            </div>
+            <div class="counters">
+                <div id="mines-counter">000</div>
+                <button id="face" onclick="resetGame()">🙂</button>
+                <div id="game-timer">000</div>
+            </div>
+        </div>
+        <script src="js/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,189 @@
+#game {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    font-family: "Orbitron", sans-serif;
+
+    h1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        height: 80px;
+        flex-grow: 1;
+        background: #222;
+        color: white;
+    }
+
+    &.lost {
+        #face {
+            animation: lost 2s linear infinite 2s alternate;
+        }
+    }
+
+    &.won {
+        #face {
+            animation: won 2s linear infinite 2s alternate;
+        }
+    }
+}
+
+.panel {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: middle;
+    background: #222;
+    color: white;
+    height: 40px;
+
+    > * {
+        display: flex;
+        border: 3px solid teal;
+        border-bottom: none;
+        background: #222;
+        justify-content: center;
+        align-items: center;
+    }
+
+    p {
+        flex-grow: 1;
+        margin: 0;
+        border-right: none;
+    }
+
+    #flag-button {
+        font-size: 22px;
+        padding: 5px 15px;
+
+        &.active {
+            background: radial-gradient(#42e6e6, #222);
+        }
+    }
+}
+
+.counters {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 26px;
+    color: red;
+
+    > div {
+        text-align: center;
+        box-sizing: border-box;
+        flex: 1;
+    }
+
+    > * {
+        padding: 5px 10px;
+        border: 3px solid teal;
+        background: #222;
+    }
+
+    #face {
+        font-size: 30px;
+        text-align: center;
+        border-left: none;
+        border-right: none;
+    }
+}
+.board {
+    background: teal;
+    display: flex;
+    flex-wrap: wrap;
+
+    &.lock {
+        pointer-events: none;
+    }
+
+    .cell {
+        background: lightgray;
+        border: 2px solid gray;
+        border-top-color: #ccc;
+        border-left-color: #ccc;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: 16px;
+
+        &:hover {
+            background: lightyellow;
+        }
+
+        &:active {
+            background: #aaa;
+            border-top-color: #333;
+            border-left-color: #333;
+            border-bottom-color: gray;
+            border-right-color: gray;
+        }
+
+        &.exploded {
+            position: relative;
+            &:before {
+                content: "💥";
+                position: absolute;
+                font-size: 20px;
+            }
+        }
+
+        &.disarmed {
+            position: relative;
+            &:before {
+                content: "💣";
+                position: absolute;
+                font-size: 20px;
+            }
+        }
+
+        &:disabled {
+            background: #f1f1f1;
+            border-top-color: #b9b9b9;
+            border-left-color: #b9b9b9;
+            border-right-color: #a2a2a2;
+            border-bottom-color: #a2a2a2;
+            color: black;
+        }
+
+        &.number-1 {
+            color: blue;
+        }
+
+        &.number-2 {
+            color: green;
+        }
+
+        &.number-3 {
+            color: orange;
+        }
+
+        &.number-4 {
+            color: red;
+        }
+    }
+}
+
+@keyframes lost {
+    0% {
+        background: #222;
+    }
+    100% {
+        background: red;
+    }
+}
+
+@keyframes won {
+    0% {
+        background: #222;
+    }
+    100% {
+        background: teal;
+    }
+}

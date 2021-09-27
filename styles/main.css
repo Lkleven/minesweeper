@@ -1,0 +1,167 @@
+@charset "UTF-8";
+#game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  font-family: "Orbitron", sans-serif;
+}
+#game h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  height: 80px;
+  flex-grow: 1;
+  background: #222;
+  color: white;
+}
+#game.lost #face {
+  animation: lost 2s linear infinite 2s alternate;
+}
+#game.won #face {
+  animation: won 2s linear infinite 2s alternate;
+}
+
+.panel {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: middle;
+  background: #222;
+  color: white;
+  height: 40px;
+}
+.panel > * {
+  display: flex;
+  border: 3px solid teal;
+  border-bottom: none;
+  background: #222;
+  justify-content: center;
+  align-items: center;
+}
+.panel p {
+  flex-grow: 1;
+  margin: 0;
+  border-right: none;
+}
+.panel #flag-button {
+  font-size: 22px;
+  padding: 5px 15px;
+}
+.panel #flag-button.active {
+  background: radial-gradient(#42e6e6, #222);
+}
+
+.counters {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 26px;
+  color: red;
+}
+.counters > div {
+  text-align: center;
+  box-sizing: border-box;
+  flex: 1;
+}
+.counters > * {
+  padding: 5px 10px;
+  border: 3px solid teal;
+  background: #222;
+}
+.counters #face {
+  font-size: 30px;
+  text-align: center;
+  border-left: none;
+  border-right: none;
+}
+
+.board {
+  background: teal;
+  display: flex;
+  flex-wrap: wrap;
+}
+.board.lock {
+  pointer-events: none;
+}
+.board .cell {
+  background: lightgray;
+  border: 2px solid gray;
+  border-top-color: #ccc;
+  border-left-color: #ccc;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+.board .cell:hover {
+  background: lightyellow;
+}
+.board .cell:active {
+  background: #aaa;
+  border-top-color: #333;
+  border-left-color: #333;
+  border-bottom-color: gray;
+  border-right-color: gray;
+}
+.board .cell.exploded {
+  position: relative;
+}
+.board .cell.exploded:before {
+  content: "💥";
+  position: absolute;
+  font-size: 20px;
+}
+.board .cell.disarmed {
+  position: relative;
+}
+.board .cell.disarmed:before {
+  content: "💣";
+  position: absolute;
+  font-size: 20px;
+}
+.board .cell:disabled {
+  background: #f1f1f1;
+  border-top-color: #b9b9b9;
+  border-left-color: #b9b9b9;
+  border-right-color: #a2a2a2;
+  border-bottom-color: #a2a2a2;
+  color: black;
+}
+.board .cell.number-1 {
+  color: blue;
+}
+.board .cell.number-2 {
+  color: green;
+}
+.board .cell.number-3 {
+  color: orange;
+}
+.board .cell.number-4 {
+  color: red;
+}
+
+@keyframes lost {
+  0% {
+    background: #222;
+  }
+  100% {
+    background: red;
+  }
+}
+@keyframes won {
+  0% {
+    background: #222;
+  }
+  100% {
+    background: teal;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
